@@ -3,16 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DELL/OneDrive/Documents/NetBeansProjects/Bai1BuoiTH2/src/TCP/ServerRun.java</file>
-            <file>file:/C:/Users/DELL/OneDrive/Documents/NetBeansProjects/Bai1BuoiTH2/src/Model/User.java</file>
-            <file>file:/C:/Users/DELL/OneDrive/Documents/NetBeansProjects/Bai1BuoiTH2/src/codepicachu/MyFrame.java</file>
-            <file>file:/C:/Users/DELL/OneDrive/Documents/NetBeansProjects/Bai1BuoiTH2/src/Control/ClientControl.java</file>
-            <file>file:/C:/Users/DELL/OneDrive/Documents/NetBeansProjects/Bai1BuoiTH2/src/View/EditView.java</file>
-            <file>file:/C:/Users/DELL/OneDrive/Documents/NetBeansProjects/Bai1BuoiTH2/src/View/LoginView.java</file>
-            <file>file:/C:/Users/DELL/OneDrive/Documents/NetBeansProjects/Bai1BuoiTH2/src/Control/ServerControl.java</file>
-            <file>file:/C:/Users/DELL/OneDrive/Documents/NetBeansProjects/Bai1BuoiTH2/src/codepicachu/MyMain.java</file>
-            <file>file:/C:/Users/DELL/OneDrive/Documents/NetBeansProjects/Bai1BuoiTH2/src/View/RegisterView.java</file>
-            <file>file:/C:/Users/DELL/OneDrive/Documents/NetBeansProjects/Bai1BuoiTH2/src/View/HomeClientView.java</file>
+            <file>file:/E:/myproject/Bai1BuoiTH2/src/View/RoomClientView.java</file>
+            <file>file:/E:/myproject/Bai1BuoiTH2/src/Model/Common.java</file>
+            <file>file:/E:/myproject/Bai1BuoiTH2/src/Model/Room.java</file>
+            <file>file:/E:/myproject/Bai1BuoiTH2/src/View/HomeClientView.java</file>
+            <file>file:/E:/myproject/Bai1BuoiTH2/src/Control/ServerControl.java</file>
         </group>
     </open-files>
 </project-private>

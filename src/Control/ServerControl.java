@@ -13,10 +13,12 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -96,6 +98,16 @@ public class ServerControl {
                         value = dp.getValue();
                         user = new Gson().fromJson(value, User.class);
                         oos.writeObject(new DataPackage("register", new Gson().toJson(addUser(user))));
+                        break;
+                    case "createRoom":
+                        value = dp.getValue();
+                        CreateRoom cr = new Gson().fromJson(value, CreateRoom.class);
+                        oos.writeObject(new DataPackage("createRoom", new Gson().toJson(createRoom(cr))));
+                        break;
+                    case "getUserOnline":
+                        value = dp.getValue();
+                        user = new Gson().fromJson(value, User.class);
+                        oos.writeObject(new DataPackage("",new Gson().toJson(getAllUserOnline(user))));
                         break;
                 }
             }
@@ -205,4 +217,67 @@ public class ServerControl {
         }
         return result;
     }
+
+    private CreateRoom createRoom(CreateRoom createRoom) {
+        Room room = createRoom.getRoom();
+        User hoster = createRoom.getHoster();
+        ArrayList<User> users = createRoom.getUsers();
+        String sql = "INSERT INTO room( timeInit, name, description) VALUES (?,?,?)";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setDate(1, room.getTimeInit());
+            ps.setInt(2, room.getName());
+            ps.setString(3, room.getDescription());
+
+            ps.executeUpdate();
+
+            //get id of the new inserted client
+            ResultSet generatedKeys = ps.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                room.setId(generatedKeys.getInt(1));
+            }
+            sql = "INSERT INTO createdroom(roomid,userid ,hoster) VALUES(?,?,?)";
+            try{
+                ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+                ps.setInt(1,room.getId());
+                ps.setInt(2, hoster.getId());
+                ps.setBoolean(3, true);
+                ps.executeUpdate();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return createRoom;
+    }
+    private ArrayList<User> getAllUserOnline(User user){
+        ArrayList<User> result = new ArrayList<>();
+        String query = "SELECT * FROM user WHERE onlines=true";
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User u = new User();
+                u.setId(rs.getInt("id"));
+                u.setName(rs.getString("name"));
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password"));
+                u.setAddress(rs.getString("address"));
+                u.setSdt(rs.getString("sdt"));
+                u.setSoccer(rs.getFloat("soccer"));
+                u.setLevel(rs.getInt("level"));
+                u.setOnlines(true);
+                
+                result.add(u);
+            }
+            ps.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return result;
+    }
+
 }

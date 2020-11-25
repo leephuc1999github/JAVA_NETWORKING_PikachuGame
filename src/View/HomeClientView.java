@@ -6,10 +6,11 @@
 package View;
 
 import Control.ClientControl;
-import Model.DataPackage;
-import Model.User;
+import Model.*;
 import codepicachu.MyMain;
 import com.google.gson.Gson;
+import java.security.SecureRandom;
+import java.sql.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,13 +25,14 @@ public class HomeClientView extends javax.swing.JFrame {
     private static User user;
 
     public HomeClientView(User user) {
-        this.user = user;
         initComponents();
-        setLocationRelativeTo(null);
+        this.user = user;
         MenuUser.setText(user.getName());
-
+        
     }
-
+    private int rangeNameRoom(){
+        return (new SecureRandom().nextInt(899) + 100);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -149,8 +151,33 @@ public class HomeClientView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        MenuUser.setText("jdsd");
+        // TODO add your handling code here:
+        ClientControl clientCtr = new ClientControl();
+        // mở kết nối
+        clientCtr.openConnection();
+        java.util.Date today = new java.util.Date();
+        // khởi tạo một phòng ngẫu nhiên do user làm chủ
+        Room room = new Room(rangeNameRoom(), new Date(today.getTime()), "");
+        CreateRoom cr = new CreateRoom(user, room);
+        // đóng gói gói dữ liệu
+        DataPackage data = new DataPackage("createRoom", new Gson().toJson(cr, CreateRoom.class));
+        // gửi gói dữ liệu đến server
+        clientCtr.sendData(data);
+        // kết quả trả về từ server
+        DataPackage result = clientCtr.receiveData();
+        String key = result.getKey();
+        String value = result.getValue();
+        cr = new Gson().fromJson(value, CreateRoom.class);
+        if(cr.getRoom().getId() != 0){
+            RoomClientView roomView = new RoomClientView(cr.getHoster() , cr.getRoom());
+            roomView.setVisible(true);
+            this.dispose();
+        }
+        // chuyển đổi data string sang user 
+        clientCtr.closeConnection();
+//        RoomClientView roomView  = new RoomClientView(user);
+//        roomView.setVisible(true);
+//        this.dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
