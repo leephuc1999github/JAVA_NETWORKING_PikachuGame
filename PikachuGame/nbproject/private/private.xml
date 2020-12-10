@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Model/Game.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Server/Main.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Client/MyFrame.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Server/ClientHandler.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Client/MyMain.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Client/RegisterClientView.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Client/RoomClientView.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Model/User_Game.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Client/ListenServer.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/database/Connections.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Client/LoginClientView.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Client/HistoryClientView.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Model/DataPackage.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/codepicachu/MyGraphics.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/database/DataFunc.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/codepicachu/Algorithm.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Client/RankingClientView.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Client/HomeClientView.java</file>
+            <file>file:/C:/Users/Dell%20M4800/Desktop/PikachuGame/PikachuGame/src/Client/inReceiveMessage.java</file>
+        </group>
+    </open-files>
+</project-private>
